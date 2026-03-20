@@ -10,3 +10,6 @@ public:
         return res;
     }
 };
+// Topic: Bit Manipulation
+// Problem: Number of 1 Bits,pb no-191
+// LeetCode: https://leetcode.com/problems/number-of-1-bits/
