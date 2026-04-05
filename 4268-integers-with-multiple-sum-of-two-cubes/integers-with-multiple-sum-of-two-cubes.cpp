@@ -8,11 +8,11 @@ public:
        // }
         for(long long a=1;(a*a*a)<=n;a++){
             long long a3=a*a*a;
-            for(long long b=a;(b*b*b)<=n;b++){
+            for(long long b=a;a3+(b*b*b)<=n;b++){
                 long long sum=a3+b*b*b;
-                 if(sum>n){
-                     break;
-                 }
+                // if(sum>n){
+                   //  break;
+                // }
                 freq[sum]++;
             }
         }
