@@ -1,20 +1,21 @@
 class Solution {
 public:
     vector<int> singleNumber(vector<int>& nums) {
-        unordered_map<int,int>freq;
-        vector<int>result;
-        for(int num:nums){
-            freq[num]++;
-
+        long long xorr = 0;
+        for (int i = 0; i < nums.size(); i++) {
+            xorr = xorr ^ nums[i];
         }
-        for(auto&it:freq){
-            if(it.second==1){
-                result.push_back(it.first);
+        
+       long long  rightmost =  (xorr & (xorr - 1)) ^ xorr;
+        int bucket1 = 0;
+        int bucket2 = 0;
+        for (int i = 0; i < nums.size() ; i++) {
+            if ((nums[i] & rightmost) == 0) {
+                bucket1 = bucket1 ^ nums[i];
+            } else {
+                bucket2 = bucket2 ^ nums[i];
             }
-
         }
-        return result;
-        
-        
+        return {bucket1, bucket2};
     }
 };
