@@ -16,7 +16,7 @@ public:
         int n = s.size();
         int st = 0;
         int e = n - 1;
-        while (st < e) {
+        while (st <= e) {
             if (s[st] != s[e]) {
                 return (ispalindrome(s, st + 1, e) ||
                         ispalindrome(s, st, e - 1));
