@@ -15,13 +15,24 @@ public:
             return temp;
         }
     }
-    bool ispali(string &temp, int l, int r) {
+   /* bool ispali(string &temp, int l, int r) {
         if (l >= r) {
             return true;
         } else if (temp[l] != temp[r]) {
             return false;
         } else
             return ispali(temp, l + 1, r - 1);
+        
+    }*/
+    bool ispali(int i,int n,string&temp){
+        if(i>=n/2){
+            return true;
+        }
+        else if(temp[i]!=temp[n-i-1]){
+            return false;
+        }
+        return ispali(i+1,n,temp);
+        
     }
     bool isPalindrome(string s) {
         string temp = "";
@@ -31,6 +42,7 @@ public:
             }
         }
         int n = temp.size();
-        return ispali(temp, 0, n - 1);
+       // return ispali(temp, 0, n - 1);
+       return ispali(0,n,temp);
     }
 };
