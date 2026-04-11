@@ -10,13 +10,12 @@ public:
             int i, k;
             if (it.second.size() >= 3) {
                 vector<int>& v = it.second;
-                for (int m = 0; m <= v.size() - 3; m++) {
-                    int i = v[m];
-                    int j = v[m + 1];
-                    int k=v[m+2];
+                for (int j = 0; j <= v.size() - 3; j++) {
+                    int i = v[j];
+                    int k = v[j + 2];
+                    
 
-
-                    mini = min(mini, abs(i-j)+abs(j-k)+abs(k-i));
+                    mini = min(mini, (2 * (k - i)));
                 }
             }
             
