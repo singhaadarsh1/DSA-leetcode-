@@ -9,7 +9,7 @@ public:
         for (auto& it : mp) {
             int i, k;
             if (it.second.size() >= 3) {
-                vector<int>& v = it.second;
+                vector<int> v = it.second;
                 for (int j = 0; j <= v.size() - 3; j++) {
                     int i = v[j];
                     int k = v[j + 2];
