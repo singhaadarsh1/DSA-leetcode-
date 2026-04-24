@@ -10,8 +10,7 @@ public:
 
             string s = "";
             for (int i = 0; i < l.size(); i++) {
-                if (l[i] == 'M' && i + 2 < l.size() && isdigit(l[i + 1]) &&
-                    isdigit(l[i + 2])) {
+                if (l[i] == 'M' ) {
                     s += l[i + 1];
                     s += l[i + 2];
                     int x = stoi(s);
@@ -19,8 +18,7 @@ public:
                         count++;
                     }
                     s.clear();
-                } else if (l[i] == 'F' && i + 2 < l.size() &&
-                           isdigit(l[i + 1]) && isdigit(l[i + 2])) {
+                } else if (l[i] == 'F' ) {
                     s += l[i + 1];
                     s += l[i + 2];
                     int x = stoi(s);
@@ -28,8 +26,7 @@ public:
                         count++;
                     }
                     s.clear();
-                } else if (l[i] == 'O' && i + 2 < l.size() &&
-                           isdigit(l[i + 1]) && isdigit(l[i + 2])) {
+                } else if (l[i] == 'O') {
                     s += l[i + 1];
                     s += l[i + 2];
                     int x = stoi(s);
