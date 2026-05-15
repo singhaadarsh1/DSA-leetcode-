@@ -5,10 +5,10 @@ I am solving problems daily to improve problem-solving skills and prepare for te
 
 ## 📈 Progress
 
-* Total Problems Solved: 150+
-* Easy: 70+
-* Medium: 70+
-* Hard: 4
+* Total Problems Solved: 250+
+* Easy: 130+
+* Medium: 110+
+* Hard: 5
 
 ## 🧠 Topics Covered
 
