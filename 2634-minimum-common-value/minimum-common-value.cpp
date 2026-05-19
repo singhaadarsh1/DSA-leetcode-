@@ -1,6 +1,7 @@
 class Solution {
 public:
     int getCommon(vector<int>& nums1, vector<int>& nums2) {
+        //1st method using c++stl , tc->o(n+m), sc->o(k)
         /* vector<int> ans;
          int mini = INT_MAX;
          set_intersection(nums1.begin(), nums1.end(), nums2.begin(),
@@ -9,26 +10,21 @@ public:
          }
          return mini==INT_MAX?-1:mini;
          */
-         vector<int>arr;
+         //method 2 using two pointer , reduce sc from o(k) to o(1);
+
         int n = nums1.size();
         int m = nums2.size();
         int i = 0;
         int j = 0;
-        while (i<n&& j<m) {
+        while (i < n && j < m) {
             if (nums1[i] == nums2[j]) {
-                arr.push_back(nums1[i]);
-                i++;
-                j++;
+                return nums1[i];
             } else if (nums1[i] > nums2[j]) {
                 j++;
             } else {
                 i++;
             }
         }
-        int mini = INT_MAX;
-        for (int i = 0; i < arr.size(); i++) {
-            mini = min(mini, arr[i]);
-        }
-        return mini == INT_MAX ? -1 : mini;
+        return -1;
     }
 };
