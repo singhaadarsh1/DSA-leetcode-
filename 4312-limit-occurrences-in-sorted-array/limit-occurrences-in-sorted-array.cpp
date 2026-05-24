@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<int> limitOccurrences(vector<int>& nums, int k) {
-       /* int count = 1;
+       /* int count = 1;//in place two pointer 1
         int m=1;
         for (int i = 1; i < nums.size(); i++) {
             if (nums[i ] == nums[i -1]) {
@@ -18,7 +18,7 @@ public:
         }
         nums.resize(m);
         return nums;
-       /* vector<int> res;
+       /* vector<int> res;//using map pure brute force and thinking process
         unordered_map<int, int> mp;
         int count = 0;
         for (int n : nums) {
@@ -41,8 +41,8 @@ public:
         }
         sort(res.begin(), res.end());
         return res;*/
-         vector<int> res;
-    unordered_map<int,int> mp;
+      /*   vector<int> res;
+    unordered_map<int,int> mp;//using map shorter
 
     for(int n : nums){
 
@@ -52,6 +52,21 @@ public:
         }
     }
 
-    return res;
+    return res;*/
+    int i = 0;//another in place two pointer solution
+
+        for(int j = 0; j < nums.size(); j++) {
+
+            // first k elements are always valid
+            if(i < k || nums[j] != nums[i-k]) {
+
+                nums[i] = nums[j];
+                i++;
+            }
+        }
+
+        nums.resize(i);
+
+        return nums;
     }
 };
