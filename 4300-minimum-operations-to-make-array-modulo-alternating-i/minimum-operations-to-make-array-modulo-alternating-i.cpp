@@ -1,65 +1,47 @@
 class Solution {
 public:
     int minOperations(vector<int>& nums, int k) {
-      /*  int n = nums.size();
-        int mini = INT_MAX;
-        int mini2 = INT_MAX;
-        int i = 0;
-        int miniop = 0;
-        int neww;
-        int new2;
-        while (i < n) {
-            if (i % 2 == 0) {
-                neww = nums[i] % k;
-                if (neww < k) {
-                    mini = min(mini, neww);
-                }
-            } else  {
-                 new2 = nums[i] % k;
-                if (new2 < k && new2 != neww) {
-                    mini2 = min(mini2, new2);
-                }
-            }
-            i++;
-        }
-        for (int i = 0; i < nums.size(); i++) {
-            if (i % 2 == 0 && nums[i] % k == mini && nums[i] % k < k) {
-                continue;
-            } else if (i % 2 != 0 && nums[i] % k == mini2 && nums[i] % k < k) {
-                continue;
-            } else if (i % 2 == 0 && (nums[i] - 1) % 2 == mini) {
-                miniop++;
-
-            } else if (i % 2 != 0 && (nums[i] + 1) % 2 == mini2) {
-                miniop++;
-            }
-        }
-        return miniop;*/
-         vector<int> od, ev;
         int n = nums.size();
-        for(int i=0; i<n; i++) {
-            if(i & 1) od.push_back(nums[i]);
-            else ev.push_back(nums[i]);
-        }
-        vector<pair<int, int>> vp, vpp;
-        for(int i=0; i<k; i++) {
-            int cnt1 = 0, cnt2 = 0;
-            for(auto &j : od) {
-                cnt1 += min(abs(i - (j % k)), k - abs(i - (j % k)));
+
+        vector<pair<int, int>> ans1, ans2;
+
+        for (int want = 0; want < k; want++) {
+
+            int c1 = 0, c2 = 0;
+
+            for (int i = 0; i < n; i++) {
+
+                int val = nums[i] % k;
+
+                if (i % 2 == 0) {
+
+                    c1 += min(abs(val - want), k - abs(val - want));
+                } else {
+
+                    c2 += min(abs(val - want), k - abs(val - want));
+                }
             }
-            for(auto &j : ev) {
-                cnt2 += min(abs(i - (j % k)), k - abs(i - (j % k)));
+
+            ans1.push_back({c1, want});
+            ans2.push_back({c2, want});
+        }
+
+        sort(ans1.begin(), ans1.end());
+        sort(ans2.begin(), ans2.end());
+
+        int res = INT_MAX;
+
+        for (int i = 0; i < 2; i++) {
+
+            for (int j = 0; j < 2; j++) {
+
+                if (ans1[i].second != ans2[j].second) {
+
+                    res = min(res, ans1[i].first + ans2[j].first);
+                }
             }
-            vp.push_back({cnt1, i});
-            vpp.push_back({cnt2, i});
         }
-        sort(vp.begin(), vp.end());
-        sort(vpp.begin(), vpp.end());
-        if(vp[0].second == vpp[0].second) {
-            return min(vp[0].first + vpp[1].first, vp[1].first + vpp[0].first);
-        } else {
-            return vp[0].first + vpp[0].first;
-        }
-        return -1;
+
+        return res;
     }
 };
