@@ -11,11 +11,11 @@ public:
                 sum += digit;
                 j = j / 10;
             }
-            arr.push_back(sum);
+            nums[i]=sum;
         }
         int mini = INT_MAX;
-        for (int i = 0; i < arr.size(); i++) {
-            mini = min(mini, arr[i]);
+        for (int i = 0; i < nums.size(); i++) {
+            mini = min(mini, nums[i]);
         }
         return mini;
     }
