@@ -10,7 +10,7 @@ public:
             if (letters[mid] == target && s == n - 1) {
                 return letters[0];
             } else if (letters[mid] == target) {
-                ans = letters[mid];
+                //ans = letters[mid];
                 s++;
             } else if (letters[mid] < target) {
                 s++;
