@@ -1,17 +1,23 @@
 class Solution {
 public:
     int maxProduct(int n) {
-        vector<int>arr;
-        int digit;
-        while(n>0){
-            digit=n%10;
-            arr.push_back(digit);
-            n=n/10;
+        int largest = 0;
+        int secondLargest = 0;
+
+        while (n > 0) {
+            int digit = n % 10;
+
+            if (digit >= largest) {
+                secondLargest = largest;
+                largest = digit;
+            }
+            else if (digit > secondLargest) {
+                secondLargest = digit;
+            }
+
+            n /= 10;
         }
-        int m=arr.size();
-        sort(arr.begin(),arr.end());
-        return arr[m-1]*arr[m-2];
-         
-        
+
+        return largest * secondLargest;
     }
 };
