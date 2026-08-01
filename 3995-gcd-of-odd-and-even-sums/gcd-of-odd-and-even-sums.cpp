@@ -1,7 +1,7 @@
 class Solution {
 public:
     int gcdOfOddEvenSums(int n) {
-        int sumeven = 0;
+       /* int sumeven = 0;// tc-o(n)
         int sumodd = 0;
         int count = 1;
         int digit = 1;
@@ -23,6 +23,9 @@ public:
             }
             digit2++;
         }
-        return gcd(sumodd,sumeven);
+        return gcd(sumodd,sumeven);*/
+        int sumOdd = n * n; //tc-o(1)
+        int sumEven = n * (n + 1);
+        return gcd(sumOdd, sumEven);
     }
 };
