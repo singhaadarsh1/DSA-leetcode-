@@ -14,21 +14,20 @@ public:
             start++;
         }
         return ans;*/
-       /* vector<int>final;
+        vector<int>final;
         int mini=*min_element(nums.begin(), nums.end());
         int maxi=*max_element(nums.begin(), nums.end());
-        unordered_set<int>st;
+        unordered_set<int>st(nums.begin(),nums.end());
         while(mini!=maxi){
-            st.insert(mini);
+            if (st.find(mini + 1) == st.end()){
+                final.push_back(mini+1);
+            }
             mini++;
         }
-        for(int i=0;i<nums.size()){
-            if(st.find(it)==nums.end()){
-                final.push_back(it);
-            }
-        }
-        return */
-        vector<int>ans;
+        return final;
+       
+        
+        /*vector<int>ans;
         int mini=*min_element(nums.begin(), nums.end());
         int maxi=*max_element(nums.begin(), nums.end());
         while(mini!=maxi){
@@ -40,7 +39,7 @@ public:
 
 
         }
-        return ans;
+        return ans;*/
 
 
 
