@@ -1,16 +1,15 @@
 class Solution {
 public:
     long long MOD = 1000000007;
-    
-    long long power(long long x, long long y) {
-        long long result = 1;
-        while (y > 0) {
-            if (y % 2 == 1) {
-                result = (result * x) % MOD;
-            }
 
-            x = (x * x) % MOD;
-            y /= 2;
+    long long power(long long x, long long y) {
+        if (y == 0) {
+            return 1;
+        }
+        long long half = power(x, y / 2);
+        long long  result = (half * half) % MOD;
+        if (y % 2 == 1) {
+            result = (result * x) % MOD;
         }
 
         return result;
